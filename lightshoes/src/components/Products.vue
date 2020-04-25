@@ -1,31 +1,20 @@
 
-<template >
-  <v-app id="products">
-    <v-content >
-      <v-container>
-        <v-row align="center" class="mr-10">
-          <template v-for="product in products">
-            <v-col cols="12" xs="12" sm="6" md="4" v-bind:key="product.id">
-              <v-card class="elevation-3 mr-0" align="center" max-width="350">
-                <v-img
-                class="mr-20"
-                max-width="280"
-                :src="product.image" 
-                alt="Tenis 1"
-                />
-                <v-card-title style="color:#363636;">{{product.name}}</v-card-title>
-                <h3 class="ml-5" align="left">R$ {{product.price}}</h3>
-                <v-card-subtitle>{{product.description}}</v-card-subtitle>
-                <v-card-actions>
-                  <v-btn color="primary" width="100%">Adicionar ao carrinho</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-col>
-          </template>
-        </v-row>
-      </v-container>
-    </v-content>
-  </v-app>
+<template>
+  <v-row align="center" class="mr-10">
+    <template v-for="product in products">
+      <v-col cols="12" xs="12" sm="6" md="4" v-bind:key="product.id">
+        <v-card class="elevation-3 mr-0" align="center" max-width="350">
+          <v-img class="mr-20" max-width="280" :src="product.image" alt="Tenis 1" />
+          <v-card-title style="color:#363636;">{{product.name}}</v-card-title>
+          <h3 class="ml-5" align="left">R$ {{product.price}}</h3>
+          <v-card-subtitle>{{product.description}}</v-card-subtitle>
+          <v-card-actions>
+            <v-btn color="primary" width="100%">Adicionar ao carrinho</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </template>
+  </v-row>
 </template>
 
 <script>
@@ -73,7 +62,8 @@ export default {
             "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et",
           price: "99,00",
           inStock: 42,
-          image:"https://static.netshoes.com.br/produtos/tenis-oakley-mod-evade-plus-masculino/10/D63-9757-010/D63-9757-010_zoom1.jpg?ts=1582319811&ims=544x"
+          image:
+            "https://static.netshoes.com.br/produtos/tenis-oakley-mod-evade-plus-masculino/10/D63-9757-010/D63-9757-010_zoom1.jpg?ts=1582319811&ims=544x"
         },
         {
           id: 5,
@@ -82,7 +72,8 @@ export default {
             "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et",
           price: "149,99",
           inStock: 0,
-          image: "https://static.netshoes.com.br/produtos/tenis-oakley-westcliff-20-masculino/04/D63-8427-004/D63-8427-004_zoom1.jpg?ts=1571677953&ims=544x",
+          image:
+            "https://static.netshoes.com.br/produtos/tenis-oakley-westcliff-20-masculino/04/D63-8427-004/D63-8427-004_zoom1.jpg?ts=1571677953&ims=544x"
         },
         {
           id: 6,
@@ -91,7 +82,8 @@ export default {
             "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et",
           price: "199,00",
           inStock: 81,
-          image:"https://static.netshoes.com.br/produtos/tenis-adidas-lite-racer-cln-masculino/56/COL-7070-056/COL-7070-056_zoom1.jpg?ts=1562348090&ims=544x"
+          image:
+            "https://static.netshoes.com.br/produtos/tenis-adidas-lite-racer-cln-masculino/56/COL-7070-056/COL-7070-056_zoom1.jpg?ts=1562348090&ims=544x"
         }
       ]
     };
@@ -99,17 +91,7 @@ export default {
 };
 </script>
 
-<style scoped>
- #products{
-   background-image: url('../assets/background.svg');
-    background-color: #fff;
-   background-size: cover;
-   }
-  /* .lightBlack{
-    color: #444;
-    background-color: #fff;
-  }  */
-</style>
+
 
 
 

@@ -39,19 +39,19 @@
     </v-app-bar>
 ''
     <v-content>
-      <Products/>
+      <ListProduct/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Products from './components/Products';
+import ListProduct from './pages/ListProduct';
 
 export default {
   name: 'App',
 
   components: {
-    Products,
+    ListProduct,
   },
 
   data: () => ({
