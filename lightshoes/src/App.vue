@@ -24,10 +24,10 @@
        <v-badge
         :content="itens"
         :value="itens"
-        color="primary"
+        color="secondary"
         overlap
       >
-        <v-btn href="/cart" color="primary" text><v-icon color="primary">mdi-cart</v-icon></v-btn>
+        <a href="/cart" text><v-icon large color="primary">mdi-cart</v-icon></a>
        </v-badge>  
     </v-app-bar>
 ''

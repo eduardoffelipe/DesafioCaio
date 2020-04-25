@@ -48,7 +48,7 @@
                 </v-form>
               </v-card-text>
               <v-card-actions align="center">
-                <v-btn width="100%" color="primary">Login</v-btn>
+                <v-btn href="/cadastro" width="100%" color="primary">Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>

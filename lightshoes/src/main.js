@@ -6,7 +6,8 @@ import '@mdi/font/css/materialdesignicons.css'
 import 'vue-material-design-icons/styles.css';
 import router from './routes.js'
 
-
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
 
 
 Vue.config.productionTip = false
