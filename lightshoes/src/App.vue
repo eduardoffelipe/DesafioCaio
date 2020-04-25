@@ -15,26 +15,20 @@
           transition="scale-transition"
           width="40"
         />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <h1 class="textLogo">LightShoes</h1>
       </div>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="/login"
+      <v-btn href="/login" color="primary" text>Login</v-btn>
+       <v-badge
+        :content="itens"
+        :value="itens"
         color="primary"
-        text
+        overlap
       >
-        <v-icon color="primary">mdi-cart</v-icon>
-      </v-btn>
+        <v-btn href="/cart" color="primary" text><v-icon color="primary">mdi-cart</v-icon></v-btn>
+       </v-badge>  
     </v-app-bar>
 ''
     <v-content>
@@ -52,12 +46,17 @@ export default {
   components: {
 
   },
-
-  data: () => ({
-    //
-  }),
 };
 </script>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+.textLogo{
+  font-family: 'Permanent Marker', cursive;
+  color:#09ce91;
+  font-size: 24px;
+  }
+</style>
+
 
 
 

@@ -34,14 +34,14 @@
               <v-card-text>
                 <v-form>
                   <v-text-field
-                    label="Login"
-                    name="login"
-                    type="text"
+                    label="Email"
+                    name="email"
+                    type="email"
                   />
 
                   <v-text-field
                     id="password"
-                    label="Password"
+                    label="Senha"
                     name="password"
                     type="password"
                   />

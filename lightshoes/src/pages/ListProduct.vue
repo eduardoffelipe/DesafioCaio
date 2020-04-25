@@ -22,8 +22,4 @@ export default {
     background-color: #fff;
    background-size: cover;
    }
-  /* .lightBlack{
-    color: #444;
-    background-color: #fff;
-  }  */
 </style>
