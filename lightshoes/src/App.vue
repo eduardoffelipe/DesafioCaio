@@ -29,8 +29,7 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
+        href="/login"
         color="primary"
         text
       >
@@ -39,19 +38,19 @@
     </v-app-bar>
 ''
     <v-content>
-      <ListProduct/>
+      <router-view :key="$route.fullPath"></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import ListProduct from './pages/ListProduct';
+// import ListProduct from './pages/ListProduct';
 
 export default {
   name: 'App',
 
   components: {
-    ListProduct,
+
   },
 
   data: () => ({
