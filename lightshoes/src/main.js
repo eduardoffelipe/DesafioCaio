@@ -5,9 +5,8 @@ import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@mdi/font/css/materialdesignicons.css'
 import 'vue-material-design-icons/styles.css';
 import router from './routes.js'
+import store from './store'
 
-import Vuelidate from 'vuelidate'
-Vue.use(Vuelidate)
 
 
 Vue.config.productionTip = false
@@ -15,5 +14,6 @@ Vue.config.productionTip = false
 new Vue({
   vuetify,
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
