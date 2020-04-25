@@ -1,5 +1,6 @@
+
 <template>
-  <v-app>
+  <v-app id="app">
     <v-app-bar
       app
       color="white"
@@ -36,7 +37,7 @@
         <v-icon color="primary">mdi-cart</v-icon>
       </v-btn>
     </v-app-bar>
-
+''
     <v-content>
       <Products/>
     </v-content>
@@ -44,7 +45,7 @@
 </template>
 
 <script>
-import Products from './pages/Products';
+import Products from './components/Products';
 
 export default {
   name: 'App',
@@ -58,3 +59,7 @@ export default {
   }),
 };
 </script>
+
+
+
+
