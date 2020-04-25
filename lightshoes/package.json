@@ -12,6 +12,7 @@
     "core-js": "^3.6.4",
     "roboto-fontface": "*",
     "vue": "^2.6.11",
+    "vue-material-design-icons": "^4.6.0",
     "vuetify": "^2.2.11"
   },
   "devDependencies": {
