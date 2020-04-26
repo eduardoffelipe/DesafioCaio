@@ -12,17 +12,17 @@
           <v-img width="80" :src="cartItem.image"></v-img>
         </v-list-item-avatar>
         <v-list-item-title v-text="cartItem.name"></v-list-item-title>
-
-        <v-btn icon @click="addProduct(cartItem)">
+       <v-list-item>
+          <v-btn icon @click="addProduct(cartItem)">
           <v-icon color="#164894">mdi-plus</v-icon>
         </v-btn>
+          <p class="mb-0 mr-2 ml-2">{{cartItem.quantidade}}</p>
           <v-btn icon @click="subtractProduct(cartItem)">
             <v-icon color="#164894">mdi-minus</v-icon>
           </v-btn>
-          <v-list-item-title v-text="cartItem.quantidade"></v-list-item-title>
+        </v-list-item>
 
-          <v-list-item-title v-text="cartItem.quantidade"></v-list-item-title>
-
+        <v-list-item-title v-text="cartItem.price"></v-list-item-title>
 
         <v-btn icon @click="removeItem(cartItem)">
           <v-icon color="#ff6961">mdi-delete</v-icon>
@@ -53,7 +53,9 @@ export default {
       cartItems: "getProductsOfCart"
     })
   },
-  methods: mapActions("cart", ["addProduct", "removeItem", "subtractProduct"]),
+  methods: {
+    ...mapActions("cart", ["addProduct", "removeItem", "subtractProduct"]),
+  },
 
   data() {
     return {

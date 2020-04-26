@@ -82,7 +82,6 @@ const getters = {
   },
   getProductById: (state) => ({ id }) => {
     const product = state.items.find((product) => product.id === id);
-    console.log(product)
     return product
   },
 };

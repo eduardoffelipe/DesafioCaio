@@ -21,15 +21,15 @@
           <v-col
             cols="12"
             sm="8"
-            md="4"
+            md="5"
           >
-            <v-card class="elevation-12">
+            <v-card class="elevation-12 mt-0">
               <v-toolbar
-                color="primary"
+                color="#fff"
                 dark
                 flat
               >
-                <v-toolbar-title>Login</v-toolbar-title>
+              <h2>Login</h2>
               </v-toolbar>
               <v-card-text>
                 <v-form>
@@ -71,5 +71,8 @@
     background-color: #fff;
    background-size: cover;
    }
+  h2{
+    color:#333
+  } 
 
 </style>

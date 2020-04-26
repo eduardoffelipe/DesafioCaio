@@ -52,7 +52,7 @@ const mutations = {
     if(state.items[productIndex].quantidade <= 1)
       return
     state.items[productIndex].quantidade -= 1
-  }
+  },
 
 };
 // actions
@@ -65,7 +65,7 @@ const actions = {
   },
   removeItem: ({commit}, product) => {
     commit('removeItemById', product)
-  }
+  },
 
 };
 
