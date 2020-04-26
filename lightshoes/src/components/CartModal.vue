@@ -34,14 +34,13 @@
 
     <v-list subheader>
       <v-subheader>Finalizar Pedido</v-subheader>
-      <!-- 
-                <v-list-item v-for="item in items2" :key="item.title">
-                  <v-list-item-avatar>
-                    <v-btn></v-btn>
-                  </v-list-item-avatar>
-
-                  <v-list-item-content> </v-list-item-content>
-      </v-list-item>-->
+    <div class="d-flex space-between">
+    <v-btn color="primary" class="ml-5">
+      Finalizar Pedido     
+    </v-btn>
+    <v-spacer></v-spacer>
+    <h2 class="mr-5 textTotal"><span class="subText">TOTAL:</span>R$ 1999,00</h2>
+    </div>  
     </v-list>
   </v-card>
 </template>
@@ -67,3 +66,13 @@ export default {
   }
 };
 </script>
+<style scoped>
+  .textTotal{
+    color: #333;
+    font-size: 28px;
+  }
+  .subText{
+    color:#888888;
+    font-size: 18px;
+  }
+</style>

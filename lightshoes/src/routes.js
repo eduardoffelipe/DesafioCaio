@@ -27,11 +27,6 @@ const routes = [
     name: "Sign Up",
     component: Cadastro,
   },
-  {
-    path: "/cart",
-    name: "Cart",
-    component: () => import("./pages/Cart.vue"),
-  },
 ];
 const router = new VueRouter({
   mode: 'history',
