@@ -17,16 +17,13 @@
       <v-spacer></v-spacer>
 
       <v-btn href="/login" color="primary" text>Login</v-btn>
-      <v-badge color="secondary" overlap>
+      <v-badge
+        color="secondary" overlap>
         <v-dialog v-model="dialog" max-width="800px" transition="dialog-bottom-transition">
           <template v-slot:activator="{ on }">
             <v-btn icon color="primary" dark v-on="on"><v-icon large>mdi-cart</v-icon></v-btn>
           </template>
             <cartModal/>
-        
-        <!-- <a href="/cart" text>
-          <v-icon large color="primary">mdi-cart</v-icon>
-        </a> -->
        </v-dialog> 
       </v-badge>
     </v-app-bar>''
@@ -41,11 +38,18 @@
  import cartModal from './components/CartModal.vue';
 
 export default {
+  data() {
+    return {
+      dialog: false,
+    };
+  },
+
   name: "App",
 
   components: {
     cartModal
-  }
+  },
+  
 };
 </script>
 <style scoped>

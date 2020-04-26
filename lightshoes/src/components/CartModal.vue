@@ -3,10 +3,10 @@
     <v-toolbar dark color="primary">
       <v-toolbar-title>Carrinho de Compras</v-toolbar-title>
       <v-spacer></v-spacer>
+        <v-btn icon color="white" @click="dialog = false"><v-icon>mdi-close</v-icon></v-btn>
     </v-toolbar>
     <v-list subheader>
       <v-subheader>Produtos no Carrinho</v-subheader>
-
       <v-list-item v-for="cartItem in cartItems" :key="cartItem.id">
         <v-list-item-avatar>
           <v-img width="80" :src="cartItem.image"></v-img>
@@ -56,14 +56,6 @@ export default {
     ...mapActions("cart", ["addProduct", "removeItem", "subtractProduct"]),
   },
 
-  data() {
-    return {
-      dialog: false,
-      notifications: false,
-      sound: true,
-      widgets: false
-    };
-  }
 };
 </script>
 <style scoped>

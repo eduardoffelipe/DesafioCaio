@@ -8,7 +8,11 @@
           <h3 class="ml-5" align="left">R$ {{ product.price }}</h3>
           <v-card-subtitle align="left">Marca: {{ product.brand }}</v-card-subtitle>
           <v-card-actions>
-            <v-btn color="primary" @click="addProduct(product)" width="100%">
+            <v-btn color="primary" @click="addProductToCart(product)" width="100%">
+              <v-snackbar v-model="snackbar">
+                Produto Adicionado com sucesso
+                <v-btn color="pink" text @click="snackbar= false">Close</v-btn>
+              </v-snackbar>
               <v-badge :content="10" left :value="10" color="secondary" overlap>
                 <v-icon right dark>mdi-cart</v-icon>Adicionar ao carrinho
               </v-badge>
@@ -24,15 +28,25 @@
 import { mapState, mapActions, mapGetters } from "vuex";
 
 export default {
+  data: () => ({
+    snackbar: false
+  }),
+
   computed: {
     ...mapState({
       products: state => state.products.items
     }),
     ...mapGetters("cart", {
       cartItems: "getProductsOfCart",
-      getProdutoQuantidade: "getProductQuantidade"
+      getProductQuantidade: "getProductQuantidade"
     })
   },
-  methods: mapActions("cart", ["addProduct"])
+  methods: {
+    ...mapActions("cart", ["addProduct"]),
+    addProductToCart(product){
+      this.snackbar = true,
+      this.addProduct(product)
+    }
+  }
 };
 </script>

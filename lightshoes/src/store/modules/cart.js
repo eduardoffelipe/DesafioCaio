@@ -1,5 +1,5 @@
 const state = {
-  items: [{id: 3, quantidade: 2}],
+  items: [],
 };
 
 // getters
@@ -19,6 +19,7 @@ const getters = {
 
   getProductQuantidade: (state) => (id) =>{
     const product = state.items.find(p => p.id == id)
+    console.log(product.quantidade)
     return product.quantidade || 0
   }
 };
@@ -39,7 +40,6 @@ const mutations = {
     })
 
     console.log(state.items.map(el => ({id: el.id, quantidade: el.quantidade})))
-
   },
 
   removeItemById: (state, {id}) => {
