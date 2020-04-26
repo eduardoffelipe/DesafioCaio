@@ -1,17 +1,12 @@
-  
-import Vue from 'vue'
-import Vuex from 'vuex'
-import cart from './modules/cart'
-import products from './modules/products'
+import Vue from "vue";
+import Vuex from "vuex";
+import {produtos} from "./produtos/index"
+Vue.use(Vuex);
 
-
-Vue.use(Vuex)
-
-const debug = process.env.NODE_ENV !== 'production'
+Vue.config.devtools = process.env.NODE_ENV === 'development'
 export default new Vuex.Store({
   modules: {
-    cart,
-    products
+    namespaced: true,
+    produtos,
   },
-  strict: debug,
-})
+});
