@@ -3,7 +3,7 @@
     <v-toolbar dark color="primary">
       <v-toolbar-title>Carrinho de Compras</v-toolbar-title>
       <v-spacer></v-spacer>
-        <v-btn icon color="white" @click="dialog = false"><v-icon>mdi-close</v-icon></v-btn>
+        <v-btn icon color="white" @click.prevent="closeDialog()"><v-icon>mdi-close</v-icon></v-btn>
     </v-toolbar>
     <v-list subheader>
       <v-subheader>Produtos no Carrinho</v-subheader>
@@ -13,18 +13,18 @@
         </v-list-item-avatar>
         <v-list-item-title v-text="cartItem.item.name"></v-list-item-title>
        <v-list-item>
-          <v-btn icon @click="addProduct(cartItem)">
+          <v-btn icon @click="addProductToCart(cartItem.item)">
           <v-icon color="#164894">mdi-plus</v-icon>
         </v-btn>
           <p class="mb-0 mr-2 ml-2">{{cartItem.quantidade}}</p>
-          <v-btn icon @click="subtractProduct(cartItem)">
+          <v-btn icon @click="subtractProduct(cartItem.item)">
             <v-icon color="#164894">mdi-minus</v-icon>
           </v-btn>
         </v-list-item>
 
         <v-list-item-title v-text="cartItem.item.price"></v-list-item-title>
 
-        <v-btn icon @click="removeProduct(cartItem)">
+        <v-btn icon @click="removeProduct(cartItem.item)">
           <v-icon color="#ff6961">mdi-delete</v-icon>
         </v-btn>
       </v-list-item>
@@ -51,7 +51,10 @@ export default {
     ...mapState("produtos", ['cartItems'])
   },
   methods: {
-    ...mapActions("produtos", ["addProduct", "removeProduct", "subtractProduct"]),
+    ...mapActions("produtos", ["addProductToCart", "removeProduct", "subtractProduct"]),
+    closeDialog(){
+      this.dialog = false
+    }
   },
 
 };

@@ -8,19 +8,24 @@
           <h3 class="ml-5" align="left">R$ {{ item.price }}</h3>
           <v-card-subtitle align="left">Marca: {{ item.brand }}</v-card-subtitle>
           <v-card-actions>
-            <v-btn color="primary" @click="addProductToCart(item)" width="100%">
-              <v-snackbar v-model="snackbar">
-                Produto Adicionado com sucesso
-                <v-btn color="pink" text @click="this.snackbar=false">Close</v-btn>
-              </v-snackbar>
-              <v-badge :content="item.id" left color="secondary" overlap>
-                <v-icon right dark>mdi-cart</v-icon>Adicionar ao carrinho
-              </v-badge>
+            <v-btn color="primary" @click="addProduct(item)" width="100%">
+              <v-icon right dark>mdi-cart</v-icon>Adicionar ao carrinho
             </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
     </template>
+    <v-dialog v-model="modal" max-width="500">
+      <v-card align="center">
+        <v-card-title class="headline">Produto Adicionado com sucesso</v-card-title>
+
+        <v-img width="50%" src="../assets/check-circle.gif" alt="Check Circle" />
+
+        <v-card-actions align="center">
+          <v-btn align="center" color="primary" @click.prevent="modal=false">Fechar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-row>
 </template>
 
@@ -29,18 +34,22 @@ import { mapState, mapActions, mapGetters } from "vuex";
 
 export default {
   data: () => ({
-    snackbar: false
+    modal: false
   }),
 
   computed: {
-    ...mapState('produtos', ['items'], ['cartItems']),
-    ...mapGetters('produtos', {
-      cartItems: 'getProductsOfCart',
-      getProductQuantidade: 'getProductQuantidade'
-    }),
+    ...mapState("produtos", ["items"], ["cartItems"]),
+    ...mapGetters("produtos", {
+      cartItems: "getProductsOfCart",
+      getProductQuantidade: "getProductQuantidade"
+    })
   },
   methods: {
-    ...mapActions('produtos', ['addProductToCart']),
-  },
+    ...mapActions("produtos", ["addProductToCart"]),
+    addProduct(item) {
+      this.addProductToCart(item);
+      this.modal = true;
+    }
+  }
 };
 </script>

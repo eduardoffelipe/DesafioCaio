@@ -1,7 +1,7 @@
 import {products} from '../../data/products'
-export const getInitialState = () => ({
+export const state = {
   items: products,
   cartItems: [],
-});
+};
 
-export const state = getInitialState();
+

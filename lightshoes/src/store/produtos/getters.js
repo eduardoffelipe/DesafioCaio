@@ -7,12 +7,11 @@ export const getters = {
     return product
   },
   getProductsOfCart: (state ) => {
-    return state.cartItems
+    return state.cartItems.length
   },
 
   getProductQuantidade: (state) => (id) =>{
-    const product = state.items.find(p => p.id == id)
-    console.log(product.quantidade)
-    return product.quantidade || 0
+    const product = state.cartItems.find(product => product.id == id)
+    return product.quantidade
   }
 };

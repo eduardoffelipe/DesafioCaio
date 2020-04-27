@@ -10,7 +10,7 @@ export const mutations = {
           state.cartItems[productIndex].quantidade += 1;
           return;
         }
-
+  
         state.cartItems.push({
           item,
           quantidade: 1,
@@ -21,31 +21,36 @@ export const mutations = {
           quantidade: 1,
         });
       }
+      
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
+   
   },
 
   [TYPES.REMOVE_ITEM_CART_BY_ID]: (state, item) => {
     try {
       const productIndex = state.cartItems.findIndex(
-        (product) => product.id == item.id
+        (product) => product.item.id == item.id
       );
+      console.log(productIndex)
       state.cartItems.splice(productIndex, 1);
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
+    
   },
 
-  [TYPES.SUBSTRACT_CART_BY_ID]: (state, { id }) => {
+  [TYPES.SUBSTRACT_CART_BY_ID]: (state, item) => {
     try {
       const productIndex = state.cartItems.findIndex(
-        (product) => product.id == id
+        (product) => product.item.id == item.id
       );
       if (state.cartItems[productIndex].quantidade <= 1) return;
       state.cartItems[productIndex].quantidade -= 1;
+      
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   },
 };
