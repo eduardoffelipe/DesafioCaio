@@ -9,9 +9,9 @@
       <v-subheader>Produtos no Carrinho</v-subheader>
       <v-list-item v-for="cartItem in cartItems" :key="cartItem.id">
         <v-list-item-avatar>
-          <v-img width="80" :src="cartItem.image"></v-img>
+          <v-img width="80" :src="cartItem.item.image"></v-img>
         </v-list-item-avatar>
-        <v-list-item-title v-text="cartItem.name"></v-list-item-title>
+        <v-list-item-title v-text="cartItem.item.name"></v-list-item-title>
        <v-list-item>
           <v-btn icon @click="addProduct(cartItem)">
           <v-icon color="#164894">mdi-plus</v-icon>
@@ -22,9 +22,9 @@
           </v-btn>
         </v-list-item>
 
-        <v-list-item-title v-text="cartItem.price"></v-list-item-title>
+        <v-list-item-title v-text="cartItem.item.price"></v-list-item-title>
 
-        <v-btn icon @click="removeItem(cartItem)">
+        <v-btn icon @click="removeProduct(cartItem)">
           <v-icon color="#ff6961">mdi-delete</v-icon>
         </v-btn>
       </v-list-item>
@@ -51,7 +51,7 @@ export default {
     ...mapState("produtos", ['cartItems'])
   },
   methods: {
-    ...mapActions("produtos", ["addProduct", "removeItem", "subtractProduct"]),
+    ...mapActions("produtos", ["addProduct", "removeProduct", "subtractProduct"]),
   },
 
 };

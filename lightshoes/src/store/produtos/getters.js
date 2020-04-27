@@ -1,22 +1,13 @@
 export const getters = {
   getListProducts: (state) => {
-    return state;
+    return state.items;
   },
   getProductById: (state) => ({ id }) => {
     const product = state.items.find((product) => product.id === id);
     return product
   },
-  getProductsOfCart: (state, getters, rootState) => {
-    console.log(state.items)
-    const allProducts = state.items.map(cartItem => {
-      const product = rootState.products.items.find(product => product.id == cartItem.id)
-      return {
-        ...product,
-        quantidade: cartItem.quantidade
-      }
-    })
-    console.log(allProducts)
-    return allProducts
+  getProductsOfCart: (state ) => {
+    return state.cartItems
   },
 
   getProductQuantidade: (state) => (id) =>{

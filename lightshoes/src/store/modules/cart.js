@@ -27,15 +27,15 @@ const getters = {
 //mutations
 const mutations = {
 
-  pushProductToCart: (state, { id }) => {
-    const productIndex = state.items.findIndex(p => p.id == id)
+  pushProductToCart: (state, item) => {
+    const productIndex = state.items.findIndex(p => p.id == item.id)
     if(productIndex != -1 ){
       state.items[productIndex].quantidade += 1
       return
     }
 
     state.items.push({
-      id,
+      item,
       quantidade: 1
     })
 
