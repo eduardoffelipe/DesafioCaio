@@ -19,15 +19,12 @@
       <v-spacer></v-spacer>
 
       <v-btn href="/login" color="primary" text>Login</v-btn>
-      <v-badge :content="cartItems" color="secondary" overlap>
-        <v-dialog v-model="dialog" max-width="800px" transition="dialog-bottom-transition">
-          <template v-slot:activator="{ on }">
-            <v-btn icon color="primary" dark v-on="on">
+      <v-badge :content="cartItems" :value="cartItems" color="secondary" overlap>
+
+            <v-btn icon color="primary" dark href="/cart">
               <v-icon large>mdi-cart</v-icon>
             </v-btn>
-          </template>
-          <cartModal />
-        </v-dialog>
+
       </v-badge>
     </v-app-bar>''
     <v-content>
@@ -38,14 +35,9 @@
 
 <script>
 import { mapGetters } from "vuex";
-import cartModal from "./components/CartModal.vue";
+
 
 export default {
-  data() {
-    return {
-      dialog: false
-    };
-  },
   computed: {
     ...mapGetters("produtos", {
       cartItems: "getProductsOfCart"
@@ -54,9 +46,7 @@ export default {
 
   name: "App",
 
-  components: {
-    cartModal
-  }
+
 };
 </script>
 <style scoped>

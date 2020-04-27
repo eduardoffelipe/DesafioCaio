@@ -1,12 +1,12 @@
 <template>
   <v-app id="register">
-    <v-container class="fill-height" fluid>
+    <v-container fluid>
       <v-row align="start" justify="center">
         <v-img max-width="300px" src="../assets/logo_light_shoes.png" />
       </v-row>
       <v-row align="center" justify="center">
         <v-col cols="12" sm="8" md="4">
-          <v-card class="elevation-12">
+          <v-card class="elevation-12 mt-10">
             <v-toolbar color="primary" dark flat>
               <v-toolbar-title>Cadastrar um produto</v-toolbar-title>
             </v-toolbar>

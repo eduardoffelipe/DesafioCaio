@@ -2,7 +2,6 @@
   <v-app id="login">
     <v-content>
       <v-container
-        class="fill-height"
         fluid
       >
        <v-row
@@ -23,7 +22,7 @@
             sm="8"
             md="5"
           >
-            <v-card class="elevation-12 mt-0">
+            <v-card class="elevation-12 mt-10">
               <v-toolbar
                 color="#fff"
                 dark
