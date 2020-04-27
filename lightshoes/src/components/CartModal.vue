@@ -45,15 +45,13 @@
   </v-card>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   computed: {
-    ...mapGetters("cart", {
-      cartItems: "getProductsOfCart"
-    })
+    ...mapState("produtos", ['cartItems'])
   },
   methods: {
-    ...mapActions("cart", ["addProduct", "removeItem", "subtractProduct"]),
+    ...mapActions("produtos", ["addProduct", "removeItem", "subtractProduct"]),
   },
 
 };

@@ -8,12 +8,12 @@
           <h3 class="ml-5" align="left">R$ {{ item.price }}</h3>
           <v-card-subtitle align="left">Marca: {{ item.brand }}</v-card-subtitle>
           <v-card-actions>
-            <v-btn color="primary" @click="addProduct(item.id)" width="100%">
+            <v-btn color="primary" @click="addProductToCart(item)" width="100%">
               <v-snackbar v-model="snackbar">
                 Produto Adicionado com sucesso
                 <v-btn color="pink" text @click="this.snackbar=false">Close</v-btn>
               </v-snackbar>
-              <v-badge :content="10" left :value="10" color="secondary" overlap>
+              <v-badge :content="item.id" left color="secondary" overlap>
                 <v-icon right dark>mdi-cart</v-icon>Adicionar ao carrinho
               </v-badge>
             </v-btn>
@@ -40,14 +40,7 @@ export default {
     }),
   },
   methods: {
-    ...mapActions('produtos', ['addProduct']),
-    addProductToCart(item){
-      this.snackbar = true,
-      this.addProduct(item)
-    },
+    ...mapActions('produtos', ['addProductToCart']),
   },
-  watch:{
-
-  }
 };
 </script>

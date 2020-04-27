@@ -2,14 +2,14 @@ import * as TYPES from './types';
 
 // actions
 export const actions = {
-  addProduct: ({commit}, product) => {
-    commit([TYPES.PUSH_PRODUCT_TO_CART], product)
+  addProductToCart: ({commit}, item) => {
+    commit(TYPES.PUSH_PRODUCT_TO_CART, item)
   },
-  subtractProduct: ({commit}, product) =>{
-    commit([TYPES.SUBSTRACT_CART_BY_ID], product)
+  subtractProduct: ({commit}, item) =>{
+    commit(TYPES.SUBSTRACT_CART_BY_ID, item)
   },
-  removeItem: ({commit}, product) => {
-    commit([TYPES.REMOVE_ITEM_CART_BY_ID], product)
+  removeProduct: ({commit}, item) => {
+    commit(TYPES.REMOVE_ITEM_CART_BY_ID, item)
   },
 
 };

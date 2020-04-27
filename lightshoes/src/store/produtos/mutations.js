@@ -1,20 +1,22 @@
 import { getInitialState } from './state';
 import * as TYPES from './types';
-
 export const mutations = {
-  [TYPES.PUSH_PRODUCT_TO_CART]: ( { id } ) => {
-    const productIndex = getInitialState().items.findIndex(p => p.id == id)
-    if(productIndex != -1 ){
-      getInitialState().items[productIndex].quantidade += 1
+  [TYPES.PUSH_PRODUCT_TO_CART]: (state , { id } ) => {
+    const initalState = getInitialState().cartItems
+    const productIndex = initalState.findIndex(p => p.id == id)
+    console.log(productIndex)
+    if(productIndex != -1){
+      console.log('aqui porra')
+      state.cartItems[productIndex].quantidade += 1
       return
     }
 
-    getInitialState().cartItems.push({
+    state.cartItems.push({
       id,
       quantidade: 1
     })
 
-     console.log(getInitialState().items.map(el => ({id: el.id, quantidade: el.quantidade})))
+    //  console.log(state.map(el => ({id: el.id, quantidade: el.quantidade})))
   },
 
   // [TYPES.REMOVE_ITEM_CART_BY_ID]: (state, {id}) => {
