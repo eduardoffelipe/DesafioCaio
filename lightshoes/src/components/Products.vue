@@ -17,7 +17,7 @@
     </template>
     <v-dialog v-model="modal" max-width="500">
       <v-card align="center">
-        <v-card-title class="headline">Produto Adicionado com sucesso</v-card-title>
+        <v-card-title class="headline text-center">Produto Adicionado com sucesso</v-card-title>
 
         <v-img width="50%" src="../assets/check-circle.gif" alt="Check Circle" />
 

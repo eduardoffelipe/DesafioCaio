@@ -8,24 +8,25 @@ export const mutations = {
         );
         if (productIndex != -1) {
           state.cartItems[productIndex].quantidade += 1;
+          state.cartItems[productIndex].priceTotal = (state.cartItems[productIndex].quantidade * parseFloat(state.cartItems[productIndex].item.price)).toFixed(2);
           return;
         }
-  
+
         state.cartItems.push({
           item,
           quantidade: 1,
+          priceTotal: parseFloat(item.price).toFixed(2),
         });
       } else {
         state.cartItems.push({
           item,
           quantidade: 1,
+          priceTotal: parseFloat(item.price).toFixed(2),
         });
       }
-      
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-   
   },
 
   [TYPES.REMOVE_ITEM_CART_BY_ID]: (state, item) => {
@@ -33,12 +34,11 @@ export const mutations = {
       const productIndex = state.cartItems.findIndex(
         (product) => product.item.id == item.id
       );
-      console.log(productIndex)
+      console.log(productIndex);
       state.cartItems.splice(productIndex, 1);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    
   },
 
   [TYPES.SUBSTRACT_CART_BY_ID]: (state, item) => {
@@ -48,9 +48,10 @@ export const mutations = {
       );
       if (state.cartItems[productIndex].quantidade <= 1) return;
       state.cartItems[productIndex].quantidade -= 1;
-      
+      state.cartItems[productIndex].priceTotal = (state.cartItems[productIndex].quantidade * parseFloat(state.cartItems[productIndex].item.price)).toFixed(2);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
+
 };

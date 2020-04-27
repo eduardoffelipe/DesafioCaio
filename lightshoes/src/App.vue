@@ -3,7 +3,7 @@
   <v-app id="app">
     <v-app-bar app color="white" dark>
       <div class="d-flex no-wrap align-center">
-       <v-img
+        <v-img
           alt="Light Shoes"
           class="shrink mr-2"
           contain
@@ -11,7 +11,9 @@
           transition="scale-transition"
           width="80"
         />
-        <a href="/" class="linkLogo"><h1 class="textLogo">LightShoes</h1></a>
+        <a href="/" class="linkLogo">
+          <h1 class="textLogo">LightShoes</h1>
+        </a>
       </div>
 
       <v-spacer></v-spacer>
@@ -20,46 +22,46 @@
       <v-badge :content="cartItems" color="secondary" overlap>
         <v-dialog v-model="dialog" max-width="800px" transition="dialog-bottom-transition">
           <template v-slot:activator="{ on }">
-            <v-btn icon color="primary" dark v-on="on"><v-icon large>mdi-cart</v-icon></v-btn>
+            <v-btn icon color="primary" dark v-on="on">
+              <v-icon large>mdi-cart</v-icon>
+            </v-btn>
           </template>
-            <cartModal/>
-       </v-dialog> 
+          <cartModal />
+        </v-dialog>
       </v-badge>
     </v-app-bar>''
     <v-content>
       <router-view :key="$route.fullPath"></router-view>
     </v-content>
-    
   </v-app>
 </template>
 
 <script>
-  import{mapGetters} from 'vuex'
- import cartModal from './components/CartModal.vue';
+import { mapGetters } from "vuex";
+import cartModal from "./components/CartModal.vue";
 
 export default {
   data() {
     return {
-      dialog: false,
+      dialog: false
     };
   },
-  computed:{
-    ...mapGetters('produtos', {
-      cartItems: 'getProductsOfCart',
-      })
+  computed: {
+    ...mapGetters("produtos", {
+      cartItems: "getProductsOfCart"
+    })
   },
 
   name: "App",
 
   components: {
     cartModal
-  },
-  
+  }
 };
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
-.linkLogo{
+.linkLogo {
   text-decoration: none;
 }
 .textLogo {

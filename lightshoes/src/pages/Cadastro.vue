@@ -12,13 +12,37 @@
             </v-toolbar>
             <v-card-text>
               <v-form ref="form" v-model="produto.valid" lazy-validation>
-                <v-text-field :rules="[v => !!v || 'Preencha o nome']" v-model="produto.name"  label="Nome do Produto" outlined required></v-text-field>
+                <v-text-field
+                  :rules="[v => !!v || 'Preencha o nome']"
+                  v-model="produto.name"
+                  label="Nome do Produto"
+                  outlined
+                  required
+                ></v-text-field>
 
-                <v-text-field :rules="[v => !!v || 'Preencha o valor']" type="number" v-model="produto.value" label="Valor" outlined required></v-text-field>
+                <v-text-field
+                  :rules="[v => !!v || 'Preencha o valor']"
+                  type="number"
+                  v-model="produto.value"
+                  label="Valor"
+                  outlined
+                  required
+                ></v-text-field>
 
-                <v-text-field :rules="[v => !!v || 'Preencha a marca']" v-model="produto.brand" label="Marca" outlined required></v-text-field>
+                <v-text-field
+                  :rules="[v => !!v || 'Preencha a marca']"
+                  v-model="produto.brand"
+                  label="Marca"
+                  outlined
+                  required
+                ></v-text-field>
 
-                <v-file-input :rules="[v => !!v || 'Escolha a Imagem']" v-model="produto.image" label="imagem" outlined></v-file-input>
+                <v-file-input
+                  :rules="[v => !!v || 'Escolha a Imagem']"
+                  v-model="produto.image"
+                  label="imagem"
+                  outlined
+                ></v-file-input>
 
                 <v-checkbox
                   v-model="checkbox"
@@ -40,29 +64,38 @@
 </template>
 
 <script>
+import api from '../services/api'
 export default {
   data: () => ({
     produto: {
       valid: true,
-      name: '',
-      value: '',
-      brand: '',
-      image:'',
+      name: "",
+      value: "",
+      brand: "",
+      image: ""
     }
   }),
 
   methods: {
-    validate(){
+    async storeProduct() {
+      await api.post(`/products`, {
+        name: this.produto.name,
+        value: this.produto.value,
+        brand: this.produto.brand,
+        image: this.produto.brand
+      })
+    },
+    validate() {
       this.$refs.form.validate();
     },
     reset() {
       this.$refs.form.reset();
     },
     store() {
-      if(this.$refs.form.validate()){
+      if (this.$refs.form.validate()) {
+        this.storeProduct();
         alert(this.produto.name);
       }
-
     }
   }
 };
