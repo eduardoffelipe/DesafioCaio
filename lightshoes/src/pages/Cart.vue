@@ -54,11 +54,14 @@
                       </td>
                     </tr>
                   </tbody>
-                  <v-spacer></v-spacer>
                   <tfoot>
                     <tr>
                       <td>
-                        <v-btn href="/checkout" color="primary" class="ml-5 mt-10 mb-5">Finalizar Pedido</v-btn>
+                        <v-btn
+                          href="/checkout"
+                          color="primary"
+                          class="ml-5 mt-10 mb-5"
+                        >Finalizar Pedido</v-btn>
                       </td>
                       <td class="displaynone"></td>
                       <td class="displaynone"></td>
@@ -70,8 +73,11 @@
                 </template>
               </v-simple-table>
             </div>
-            <div v-else class="">
-              <v-card min-height="600" class=" d-flex flex-column align-center justify-center elevation-12 empty-cart">
+            <div v-else class>
+              <v-card
+                min-height="600"
+                class="d-flex flex-column align-center justify-center elevation-12 empty-cart"
+              >
                 <h2>Seu carrinho esta Carrinho Vazio</h2>
                 <svg
                   stroke="currentColor"
@@ -88,8 +94,8 @@
                   />
                 </svg>
                 <v-btn class="btn-back mt-5" color="primary" href="/">
-                <v-icon>mdi-cart</v-icon>Voltar as Compras
-              </v-btn>
+                  <v-icon>mdi-cart</v-icon>Voltar as Compras
+                </v-btn>
               </v-card>
             </div>
           </v-col>

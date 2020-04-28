@@ -23,7 +23,7 @@
                 <v-text-field
                   :rules="[v => !!v || 'Preencha o valor']"
                   type="number"
-                  v-model="produto.value"
+                  v-model="produto.price"
                   label="Valor"
                   outlined
                   required
@@ -44,13 +44,6 @@
                   outlined
                   required
                 ></v-text-field>
-
-                <v-checkbox
-                  v-model="checkbox"
-                  :rules="[v => !!v || 'Você precisa aceitar']"
-                  label="Confirmo que as informações estão corretas."
-                  required
-                ></v-checkbox>
 
                 <v-btn
                   type="submit"
@@ -77,7 +70,7 @@ export default {
     produto: {
       valid: true,
       name: "",
-      value: "",
+      price: "",
       brand: "",
       image: ""
     }

@@ -68,7 +68,7 @@ export const mutations = {
         ...item,
       };
 
-      Object.assign(state.items, newData);
+      state.items.push(newData);
       console.log(state.items);
     } catch (error) {
       console.log(error);
