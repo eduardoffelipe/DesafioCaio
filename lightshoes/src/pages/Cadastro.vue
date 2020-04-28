@@ -37,12 +37,13 @@
                   required
                 ></v-text-field>
 
-                <v-file-input
-                  :rules="[v => !!v || 'Escolha a Imagem']"
+                <v-text-field
+                  :rules="[v => !!v || 'Preencha a URL da imagem']"
                   v-model="produto.image"
-                  label="imagem"
+                  label="URL da imagem"
                   outlined
-                ></v-file-input>
+                  required
+                ></v-text-field>
 
                 <v-checkbox
                   v-model="checkbox"
@@ -51,7 +52,12 @@
                   required
                 ></v-checkbox>
 
-                <v-btn type="submit" color="primary" class="mr-4" @click.prevent="store">Salvar</v-btn>
+                <v-btn
+                  type="submit"
+                  color="primary"
+                  class="mr-4"
+                  @click.prevent="store(produto)"
+                >Salvar</v-btn>
 
                 <v-btn color="error" class="mr-4" @click="reset">Limpar Campos</v-btn>
               </v-form>
@@ -64,7 +70,8 @@
 </template>
 
 <script>
-import api from '../services/api'
+import { mapActions, mapState } from "vuex";
+import api from "../services/api";
 export default {
   data: () => ({
     produto: {
@@ -75,15 +82,18 @@ export default {
       image: ""
     }
   }),
-
+  computed: {
+    ...mapState("produtos", ["items"])
+  },
   methods: {
+    ...mapActions("produtos", ["addProduct"]),
     async storeProduct() {
       await api.post(`/products`, {
         name: this.produto.name,
         value: this.produto.value,
         brand: this.produto.brand,
         image: this.produto.brand
-      })
+      });
     },
     validate() {
       this.$refs.form.validate();
@@ -91,8 +101,9 @@ export default {
     reset() {
       this.$refs.form.reset();
     },
-    store() {
+    store(item) {
       if (this.$refs.form.validate()) {
+        this.addProduct(item);
         this.storeProduct();
         alert(this.produto.name);
       }

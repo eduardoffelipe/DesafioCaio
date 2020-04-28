@@ -32,7 +32,7 @@
                     <v-text-field
                       :rules="[v => !!v || 'Preencha o CPF']"
                       v-model="dados.cpf"
-                      label="Marca"
+                      label="CPF"
                       outlined
                       required
                     ></v-text-field>
@@ -62,7 +62,7 @@
                     <v-text-field
                       :rules="[v => !!v || 'Preencha o Bairro']"
                       v-model="dados.endereco.bairro"
-                      label="Marca"
+                      label="Bairro"
                       outlined
                       required
                     ></v-text-field>
@@ -70,7 +70,7 @@
                     <v-text-field
                       :rules="[v => !!v || 'Preencha a Cidade']"
                       v-model="dados.endereco.cidade"
-                      label="Marca"
+                      label="Cidade"
                       outlined
                       required
                     ></v-text-field>
@@ -78,7 +78,7 @@
                     <v-text-field
                       :rules="[v => !!v || 'Preencha o Estado']"
                       v-model="dados.endereco.estado"
-                      label="Marca"
+                      label="Estado"
                       outlined
                       required
                     ></v-text-field>

@@ -8,7 +8,10 @@ export const mutations = {
         );
         if (productIndex != -1) {
           state.cartItems[productIndex].quantidade += 1;
-          state.cartItems[productIndex].priceTotal = (state.cartItems[productIndex].quantidade * parseFloat(state.cartItems[productIndex].item.price)).toFixed(2);
+          state.cartItems[productIndex].priceTotal = (
+            state.cartItems[productIndex].quantidade *
+            parseFloat(state.cartItems[productIndex].item.price)
+          ).toFixed(2);
           return;
         }
 
@@ -48,10 +51,27 @@ export const mutations = {
       );
       if (state.cartItems[productIndex].quantidade <= 1) return;
       state.cartItems[productIndex].quantidade -= 1;
-      state.cartItems[productIndex].priceTotal = (state.cartItems[productIndex].quantidade * parseFloat(state.cartItems[productIndex].item.price)).toFixed(2);
+      state.cartItems[productIndex].priceTotal = (
+        state.cartItems[productIndex].quantidade *
+        parseFloat(state.cartItems[productIndex].item.price)
+      ).toFixed(2);
     } catch (error) {
       console.log(error);
     }
   },
 
+  [TYPES.ADD_PRODUCT]: (state, item) => {
+    try {
+      const { items } = state.items;
+      const newData = {
+        ...items,
+        ...item,
+      };
+
+      Object.assign(state.items, newData);
+      console.log(state.items);
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
